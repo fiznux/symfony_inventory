@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>All Inventory List</h3>
+	<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td><a href="{{ path('item_show', { 'id': item.id }) }}">{{ item.id }}</a></td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.description }}</td>
+                <td>{% if item.created %}{{ item.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    
+                            <a title="Show Detail" href="{{ path('item_show', { 'id': item.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+							&nbsp;&nbsp;
+                            <a title="Edit Item" href="{{ path('item_edit', { 'id': item.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                     
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+	</div>
+
+{% endblock %}
