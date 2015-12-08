@@ -1,4 +1,4 @@
 inventory
 =========
 
-A Symfony project created on December 8, 2015, 12:40 pm.
+a simple inventory/stock management web application that can perform simple CRUD (create, read, update and delete) operations
